@@ -13,7 +13,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 import variables
 import variables2
-import logging
 
 
 @pytest.mark.usefixtures("setup")
