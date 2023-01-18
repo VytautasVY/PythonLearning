@@ -1,4 +1,5 @@
 import pytest as pytest
+import selenium.webdriver.chrome.webdriver
 from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import wait, expected_conditions
