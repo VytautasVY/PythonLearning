@@ -1,12 +1,6 @@
-import time
-from gettext import gettext
-
 import pytest as pytest
 import selenium.webdriver.chrome.webdriver
-from selenium import webdriver
 from selenium.webdriver import Keys, ActionChains
-# from selenium.webdriver.chrome import webdriver
-# from selenium.webdriver.chrome import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import wait, expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
