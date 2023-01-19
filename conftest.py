@@ -17,7 +17,7 @@ def setup(request):
     driver.implicitly_wait(10)
     driver.maximize_window()
     driver.get("https://www.orioninc.com/careers/job-application/?job_id=16579")
-    driver.find_element(By.ID, variables.cookies).click()
+    driver.find_element(By.ID, elements_selectors.cookies).click()
     WebDriverWait(driver, 2)
     request.cls.driver = driver
     yield
