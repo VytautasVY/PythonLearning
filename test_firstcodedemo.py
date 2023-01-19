@@ -11,7 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 
 
-import variables
+import elements_selectors
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
