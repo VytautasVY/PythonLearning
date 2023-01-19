@@ -3,7 +3,6 @@ from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import wait, expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-
 import elements_selectors
 import text_variables
 
