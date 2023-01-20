@@ -1,9 +1,9 @@
 import allure
 import pytest as pytest
 from allure_commons.types import AttachmentType
-from selenium.webdriver import Keys, ActionChains
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import wait, expected_conditions
+from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 import elements_selectors
 import text_variables
@@ -12,101 +12,90 @@ import text_variables
 @pytest.mark.usefixtures("setup")
 class TestJobApplicationForm:
     @allure.severity(allure.severity_level.NORMAL)
-    def test_FirstName(self):
+    def test_firstname(self):
         self.driver.find_element(By.NAME, elements_selectors.FirstName).send_keys("Test")
         text = self.driver.find_element(By.ID, text_variables.text_FirstName).get_attribute("value")
         assert text == "Test"
-        print(text)
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_LastName(self):
+    def test_lastname(self):
         self.driver.find_element(By.NAME, elements_selectors.LastName).send_keys("Test")
         text = self.driver.find_element(By.ID, text_variables.text_LastName).get_attribute("value")
         assert text == "Test"
-        print(text)
 
     @allure.severity(allure.severity_level.NORMAL)
     def test_email(self):
         self.driver.find_element(By.NAME, elements_selectors.Email).send_keys("test.test@gmail.com")
         text = self.driver.find_element(By.ID, text_variables.text_Email).get_attribute("value")
         assert text == "test.test@gmail.com"
-        print(text)
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_PhoneNumber(self):
+    def test_phone_number(self):
         self.driver.find_element(By.NAME, elements_selectors.PhoneNumber).send_keys("+37061234567")
         text = self.driver.find_element(By.ID, text_variables.text_PhoneNumber).get_attribute("value")
         assert text == "+37061234567"
-        print(text)
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_Country(self):
+    def test_country(self):
         action = ActionChains(self.driver)
         dropdown = self.driver.find_element(By.XPATH, elements_selectors.countrylist)
         action.move_to_element(dropdown).click().perform()
-        country = WebDriverWait(self.driver, 5).until(expected_conditions.element_to_be_clickable((By.XPATH, elements_selectors.Country)))
+        country = WebDriverWait(self.driver, 5)\
+            .until(expected_conditions.element_to_be_clickable((By.XPATH, elements_selectors.Country)))
         action.move_to_element(country).click().perform()
         text = self.driver.find_element(By.ID, text_variables.text_Country).get_attribute("value")
         assert text == "Lithuania"
-        print(text)
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_City1(self):
+    def test_city1(self):
         self.driver.find_element(By.NAME, elements_selectors.City).send_keys("Vilnius")
         text = self.driver.find_element(By.ID, text_variables.text_city1).get_attribute("value")
         assert text == "Vilnius"
-        print(text)
 
     @allure.severity(allure.severity_level.MINOR)
-    def test_City2(self):
+    def test_city2(self):
         self.driver.find_element(By.NAME, elements_selectors.City1).send_keys("Vilnius")
         text = self.driver.find_element(By.ID, text_variables.text_city2).get_attribute("value")
         assert text == "Vilnius"
-        print(text)
 
     @allure.severity(allure.severity_level.MINOR)
-    def test_Zip(self):
+    def test_zip(self):
         self.driver.find_element(By.NAME, elements_selectors.Zip).send_keys("LT1234")
         text = self.driver.find_element(By.ID, text_variables.text_Zip).get_attribute("value")
         assert text == "LT1234"
-        print(text)
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_SkillSummary(self):
+    def test_skill_summary(self):
         self.driver.find_element(By.NAME, elements_selectors.SkillSummary).send_keys("CV")
         text = self.driver.find_element(By.ID, text_variables.text_SkillSummary).get_attribute("value")
         assert text == "CV"
-        print(text)
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_UploadCV(self):
+    def test_upload_cv(self):
         element = self.driver.find_element(By.ID, elements_selectors.CV)
         element.send_keys("C:\\Users\\vuziela\\TestCV.doc")
         text = self.driver.find_element(By.XPATH, text_variables.text_CVUploaded).text
         assert text == "TestCV.doc"
-        print("CVUploaded", text)
         allure.attach(self.driver.get_screenshot_as_png(), name="TestCV", attachment_type=AttachmentType.PNG)
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_AboutUs(self):
+    def test_about_us(self):
         self.driver.find_element(By.NAME, elements_selectors.AboutUs).send_keys("Tech Muge")
         text = self.driver.find_element(By.ID, text_variables.text_TechMuge).get_attribute("value")
         assert text == "Tech Muge"
-        print(text)
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_SaveMyInfoCheckbox(self):
+    def test_save_my_info_checkbox(self):
         self.driver.find_element(By.ID, elements_selectors.SaveMyInfoCheckbox).click()
         text = self.driver.find_element(By.ID, text_variables.text_Checkbox).text
         assert text == "Save my information"
-        print(text)
 
     @allure.severity(allure.severity_level.CRITICAL)
-    def test_SubmitApplication(self):
+    def test_submit_application(self):
         self.driver.find_element(By.ID, elements_selectors.Submit).click()
         text = self.driver.find_element(By.ID, text_variables.text_SubmitApplication).get_attribute("value")
         assert text == "Submit Application"
-        print(text)
+
 
 
 

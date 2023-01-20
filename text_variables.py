@@ -15,3 +15,4 @@ text_SubmitApplication = "gform_submit_button_7"
 
 #XPath selector
 text_CVUploaded = "/html/body/main/article/div/div/div/div/div/div/form/div[2]/ul/li[12]/div[2]/span"
+
