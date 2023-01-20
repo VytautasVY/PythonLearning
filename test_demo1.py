@@ -78,7 +78,7 @@ class TestJobApplicationForm:
         assert text == "CV"
         print(text)
 
-    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.severity(allure.severity_level.NORMAL)
     def test_UploadCV(self):
         element = self.driver.find_element(By.ID, elements_selectors.CV)
         element.send_keys("C:\\Users\\vuziela\\TestCV.doc")
