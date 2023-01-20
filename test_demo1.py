@@ -10,7 +10,7 @@ import text_variables
 
 
 @pytest.mark.usefixtures("setup")
-class TestExample:
+class TestJobApplicationForm:
     @allure.severity(allure.severity_level.NORMAL)
     def test_FirstName(self):
         self.driver.find_element(By.NAME, elements_selectors.FirstName).send_keys("Test")
