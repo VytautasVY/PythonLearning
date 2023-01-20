@@ -1,4 +1,3 @@
-import allure
 import pytest as pytest
 from selenium import webdriver
 from selenium.webdriver import Keys, ActionChains
