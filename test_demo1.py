@@ -1,3 +1,4 @@
+import allure
 import pytest as pytest
 from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
@@ -9,7 +10,6 @@ import text_variables
 
 @pytest.mark.usefixtures("setup")
 class TestExample:
-
     def test_FirstName(self):
         self.driver.find_element(By.NAME, elements_selectors.FirstName).send_keys("Test")
         text = self.driver.find_element(By.ID, text_variables.text_FirstName).get_attribute("value")
