@@ -9,7 +9,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 import elements_selectors
 import text_variables
-from POM.pages.base_page import BasePage
 
 
 @pytest.fixture(scope="class")
@@ -20,7 +19,6 @@ def setup(request):
     driver.get("https://www.orioninc.com/careers/job-application/?job_id=16579")
     driver.find_element(By.ID, elements_selectors.cookies).click()
     WebDriverWait(driver, 2)
-    request.cls.basepage = BasePage(driver)
     request.cls.driver = driver
     yield
     driver.close()
